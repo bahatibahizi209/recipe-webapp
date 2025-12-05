@@ -1,0 +1,68 @@
+import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
+import { Menu, X } from "lucide-react";
+
+const Header = () => {
+  return (
+    <div className="bg-light-neutral-100 backdrop-blur-md shadow-md sticky top-0 z-50 border-b border-light-neutral-200">
+      <div className="container mx-auto px-4 py-4">
+
+        {/* Desktop Layout */}
+        <div className="hidden md:grid md:grid-cols-3 items-center">
+          <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-all duration-300">
+            <img src={logo} className="h-10 w-auto" alt="logo of recipe website" />
+          </Link>
+          
+          <nav className="flex items-center justify-center space-x-6">
+            <Link to="/" className="relative text-gray-600 font-medium px-3 py-2 transition-all duration-300 hover:text-primary group">
+              Home
+              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </Link>
+
+            <Link to="/about" className="relative text-gray-600 font-medium px-3 py-2 transition-all duration-300 hover:text-primary group">
+              About
+              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </Link>
+
+            <Link to="/recipes" className="relative text-gray-600 font-medium px-3 py-2 transition-all duration-300 hover:text-primary group">
+              Recipes
+              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </Link>
+          </nav>
+          
+          <div className="flex items-center justify-end">
+            <Link to="/recipes" className="bg-primary text-sm text-light-neutral-0 px-6 py-3 rounded-xl hover:bg-secondary transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105">
+              Browse recipes
+            </Link>
+          </div>
+        </div>
+          {/* Mobile Layout */}
+        <div className="flex justify-between items-center md:hidden">
+          <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-all duration-300">
+            <img src={logo} className="h-10 w-auto" alt="logo of recipe website" />
+          </Link>
+            <Menu className="h-6 w-6" />
+        </div>
+      </div>
+        {/*Mobile Layout conditional rendering */}
+           <div className="md:hidden bg-light-neutral-0 border-t border-light-neutral-200 shadow-sm">
+          <nav className="flex flex-col space-y-2 py-4 px-4">
+            <Link to="/" className="text-gray-700 hover:text-primary transition-all
+            text-left font-medium border-b border-transparent hover:border-primary pb-1">Home
+            </Link>
+             <Link to="/about" className="text-gray-700 hover:text-primary transition-all
+            text-left font-medium border-b border-transparent hover:border-primary pb-1">About
+            </Link>
+             <Link to="/recipes" className="text-gray-700 hover:text-primary transition-all
+            text-left font-medium border-b border-transparent hover:border-primary pb-1">Recipe
+            </Link>
+                <Link to="/recipes" className="text-center bg-primary text-sm text-light-neutral-0 px-6 py-3 rounded-xl hover:bg-secondary transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105">
+              Browse recipes
+            </Link>
+          </nav>
+           </div>
+    </div>
+  );
+};
+
+export default Header;
