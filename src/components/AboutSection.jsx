@@ -1,4 +1,4 @@
-import image   from '../../src/assets/herobanner6.jpg'
+import image   from '../../src/assets/herobanner9.jpg'
 function AboutSection() {
   return (
     <div className="py-10 bg-light-neutral-100 from-teal-50 to-orange-50">
@@ -19,7 +19,7 @@ function AboutSection() {
             </p>
         </div>
          <div className="relative">
-        <img src={image} alt="" className="relative w-100 h-auto rounded-3xl shadow-2xl transform
+        <img src={image} alt="" className="relative w-120 rounded-3xl shadow-2xl transform
         hover:scale-105 transition-all duration-500 cursor-pointer"/>
         </div>
         </div>

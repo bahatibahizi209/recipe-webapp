@@ -32,7 +32,7 @@ const Header = () => {
           
           <div className="flex items-center justify-end">
             <Link to="/recipes" className="bg-primary text-sm text-light-neutral-0 px-6 py-3 rounded-xl hover:bg-secondary transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105">
-              Browse recipes
+              Browse Recipes
             </Link>
           </div>
         </div>
@@ -57,7 +57,7 @@ const Header = () => {
             text-left font-medium border-b border-transparent hover:border-primary pb-1">Recipe
             </Link>
                 <Link to="/recipes" className="text-center bg-primary text-sm text-light-neutral-0 px-6 py-3 rounded-xl hover:bg-secondary transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105">
-              Browse recipes
+              Browse Recipes
             </Link>
           </nav>
            </div>
