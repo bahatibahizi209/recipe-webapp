@@ -1,6 +1,56 @@
 import Aboutimage from "../../assets/herobanner4.jpg"
-import profile1 from "../../assets/profile1.jpg"
-export default function Aboutpage() {
+import { Users,ChefHat,Clock,Award,Heart,Leaf} from "lucide-react";
+const stats = [
+  { number: "10K+", label: "Happy Cooks", icon: Users },
+  { number: "500+", label: "Healthy Recipes", icon:ChefHat },
+  { number: "30min", label: "Average Cook Time", icon: Clock },
+  { number: "5★", label: "Average Rating", icon: Award },
+];
+const values = [
+  {
+    icon: Heart,
+    title: "Health First",
+    description:
+      "Every recipe is crafted with nutrition in mind, using whole foods and natural ingredients to fuel your body.",
+  },
+  {
+    icon: Clock,
+    title: "Time Conscious",
+    description:
+      "We understand busy lifestyles. Our recipes are designed to be quick, efficient, and perfect for real life.",
+  },
+  {
+    icon:Leaf,
+    title: "Chef Approved",
+    description:
+      "Our meals are tested and perfected by culinary experts to ensure quality and flavor every time.",
+  },
+];
+const Team = [
+  {
+    name: "Sarah Johnson",
+    role: "Head Chef & Nutritionist",
+    image:
+      "https://images.pexels.com/photos/3768911/pexels-photo-3768911.jpeg?auto=compress&cs=tinysrgb&w=400",
+    bio: "15+ years creating healthy delicious recipes",
+  },
+  {
+    name: "Michael Chen",
+    role: "Recipe Developer",
+    image:
+      "https://images.pexels.com/photos/697509/pexels-photo-697509.jpeg",
+    bio: "Specializes in quick family-friendly meals",
+  },
+  {
+    name: "Emma Rodriguez",
+    role: "Food Photographer",
+    image:
+      "https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?b=1&s=612x612&w=0&k=20&c=hEPh7-WEAqHTHdQtPrfEN9-yYCiPGKvD32VZ5lcL6SU=",
+    bio: "Makes every dish look as good as it tastes",
+  },
+];
+
+function Aboutpage() {
   return (
     <div className="min-h-screen bg-light-neutral-200">
       <section className="relative py-20 lg:py-32 overflow-hidden">
@@ -16,14 +66,17 @@ export default function Aboutpage() {
     {/* STATS SECTION */}
     <section className="py-16 bg-white">
     <div className="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    {stats.map((stats)=>(
     <div>
       {/* stats numbers */}
     <div className="w-16 h-16 bg-primary 
     rounded-2xl flex items-center justify-center mx-auto mb-4">
+      <stats.icon className="text-white h-8 w-8"/>
     </div>
-    <h3 className="text-3xl font-black text-primary">Stats Number</h3>
-    <p className="text-gray-950">Stats Label</p>
+    <h3 className="text-3xl font-black text-primary">{stats.number}</h3>
+    <p className="text-gray-950">{stats.label}</p>
     </div>
+    ))}
     </div>
     </section>
     <section className="py-20 lg:py-20 lg:bg-light-neutral-100/20">
@@ -58,13 +111,15 @@ export default function Aboutpage() {
       <h2 className="text-4xl font-bold text-primary">Our Values</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-      <div className="bg-neutral-50 p-8 rounded-3xl shadow-md hover:shadow-lg transition">
+      {values.map((value)=>(
+        <div className="bg-neutral-50 p-8 rounded-3xl shadow-md hover:shadow-lg transition">
         <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
-          ICON
+          <value.icon className="text-white h-8 w-8"/>
         </div>
-        <h3 className="text-xl font-semibold text-primary">Value title</h3>
-        <p className="text-gray-950">Value desc</p>
+        <h3 className="text-xl font-semibold text-primary">{value.title}</h3>
+        <p className="text-gray-950">{value.description}</p>
       </div>
+      ))}
       </div>
        </div>
       </section>
@@ -74,13 +129,15 @@ export default function Aboutpage() {
         <h3 className="text-4xl font-bold text-primary mb-10">Meet Out Team</h3>
       <div className="grid md:grid-cols-3 gap-10">
       {/*use map method */}
-      <div className="group">
-      <img src={profile1} alt=""  className="w-48 h-48 rounded-full object-cover border-4
+      {Team.map((team)=>(
+      <div className="group text-center">
+      <img src={team.image} alt=""  className="w-35 h-35 rounded-full object-cover border-4
      border-white shadow-lg mb-4 mx-auto"/>
-      <h3 className="text-2xl font-semibold text-primary">Member Name</h3>
-      <p className="text-xl text-orange-400">Member Role</p>
-      <p className="text-l text-gray-950">Member Bio</p>
+      <h3 className="text-2xl font-semibold text-primary">{team.name}</h3>
+      <p className="text-xl text-orange-400">{team.role}</p>
+      <p className="text-l text-gray-950">{team.bio}</p>
       </div>  
+      ))}
       </div>
       </div>
       </section>
@@ -97,3 +154,5 @@ export default function Aboutpage() {
     </div>
   )
 }
+
+export default Aboutpage;

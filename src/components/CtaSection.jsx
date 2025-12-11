@@ -1,5 +1,3 @@
-import LeftImage   from '../../src/assets/profile1.jpg'
-import RightImage  from '../../src/assets/profile2.jpg'
 function CtaSection() {
   return (
      <div className="py-20 lg:py-20 bg-light-neutral-300/50 relative overflow-hidden">

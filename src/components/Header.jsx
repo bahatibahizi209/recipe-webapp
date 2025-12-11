@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
 const Header = () => {
+  const [IsMenuOpen,setIsMenuOpen]= useState(false)
   return (
     <div className="bg-light-neutral-100 backdrop-blur-md shadow-md sticky top-0 z-50 border-b border-light-neutral-200">
       <div className="container mx-auto px-4 py-4">
@@ -41,28 +43,42 @@ const Header = () => {
           <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-all duration-300">
             <img src={logo} className="h-10 w-auto" alt="logo of recipe website" />
           </Link>
-            <Menu className="h-6 w-6" />
+          <button onClick={()=>setIsMenuOpen(!IsMenuOpen)} className="md:hidden p-2 text-gray-600 hover:text-gray-800 transition-all">
+           {IsMenuOpen ?<X/>: <Menu className="h-6 w-6" />}
+          </button>  
         </div>
       </div>
         {/*Mobile Layout conditional rendering */}
+        {IsMenuOpen && (
            <div className="md:hidden bg-light-neutral-0 border-t border-light-neutral-200 shadow-sm">
           <nav className="flex flex-col space-y-2 py-4 px-4">
             <Link to="/" className="text-gray-700 hover:text-primary transition-all
-            text-left font-medium border-b border-transparent hover:border-primary pb-1">Home
+            text-left font-medium border-b border-transparent hover:border-primary pb-1"
+            onClick={() => setIsMenuOpen(false)}
+            >Home
             </Link>
              <Link to="/about" className="text-gray-700 hover:text-primary transition-all
-            text-left font-medium border-b border-transparent hover:border-primary pb-1">About
+            text-left font-medium border-b border-transparent hover:border-primary pb-1"
+            onClick={() => setIsMenuOpen(false)}
+            >About
             </Link>
              <Link to="/recipes" className="text-gray-700 hover:text-primary transition-all
-            text-left font-medium border-b border-transparent hover:border-primary pb-1">Recipe
+            text-left font-medium border-b border-transparent hover:border-primary pb-1"
+            onClick={() => setIsMenuOpen(false)}
+            >Recipe
             </Link>
-                <Link to="/recipes" className="text-center bg-primary text-sm text-light-neutral-0 px-6 py-3 rounded-xl hover:bg-secondary transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105">
-              Browse Recipes
+            <Link to="/recipes" className="text-center bg-primary text-sm 
+            text-light-neutral-0 px-6 py-3 rounded-xl hover:bg-secondary transition-all 
+            duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
+            onClick={() => setIsMenuOpen(false)}
+            >
+            Browse Recipes
             </Link>
           </nav>
            </div>
+        )}
     </div>
   );
 };
 
-export default Header;
+  export default Header;
